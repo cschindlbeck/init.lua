@@ -4,21 +4,30 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-  use{
-	  'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} 
-  }
+    use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 
-  -- use 'Mofiqul/vscode.nvim'  -- from 0.8 on
-  -- fix for nvim 0.7
-  use { 'Mofiqul/vscode.nvim', commit = "c5125820a0915ef50f03fae10423c43dc49c66b1" } 
+    use 'Mofiqul/vscode.nvim'
+
+    use 'tpope/vim-fugitive'
+
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+        },
+        cmd = { "NvimTreeToggle", "NvimTreeClose" },
+        config = function()
+            require("config.nvimtree").setup()
+        end,
+    }
 
 end)
