@@ -13,6 +13,12 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use{{'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} }
+  use{
+	  'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} 
+  }
+
+  -- use 'Mofiqul/vscode.nvim'  -- from 0.8 on
+  -- fix for nvim 0.7
+  use { 'Mofiqul/vscode.nvim', commit = "c5125820a0915ef50f03fae10423c43dc49c66b1" } 
 
 end)
