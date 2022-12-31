@@ -8,10 +8,10 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvimtree").setup()
+require("nvim-tree").setup()
 
 -- OR setup with some options
-require("nvimtree").setup({
+require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
         adaptive_size = true,
@@ -28,23 +28,3 @@ require("nvimtree").setup({
         dotfiles = true,
     },
 })
-
-
-
-local M = {}
-
-function M.setup()
-  require("nvim-tree").setup {
-    disable_netrw = true,
-    hijack_netrw = true,
-    view = {
-      number = true,
-      relativenumber = true,
-    },
-    filters = {
-      custom = { ".git" },
-    },
-  }
-end
-
-return M

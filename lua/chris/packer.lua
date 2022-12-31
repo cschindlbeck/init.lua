@@ -20,14 +20,15 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use {
-        "kyazdani42/nvim-tree.lua",
+        'nvim-tree/nvim-tree.lua',
         requires = {
-            "kyazdani42/nvim-web-devicons",
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
-        cmd = { "NvimTreeToggle", "NvimTreeClose" },
-        config = function()
-            require("config.nvimtree").setup()
-        end,
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+
+
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+    use 'famiu/bufdelete.nvim'
 
 end)
