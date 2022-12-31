@@ -13,7 +13,9 @@ PackerSync
 create after/plugin dir
 
 
-sudo add-apt-repository ppa:fontforge/fontforge;
-sudo apt-get update;
-sudo apt-get install fontforge;
+nerdfont download repos, install via script, takes ages and loads of space
+https://github.com/ryanoasis/nerd-fonts#option-3-install-script
 
+
+mason lsp needs npm
+sudo apt install npm
