@@ -10,8 +10,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 
 -- Copy paste to clipboard
 -- NOT WORKING?
-vim.keymap.set({'n', 'x'}, 'cp', '"+y')
-vim.keymap.set({'n', 'x'}, 'cv', '"+p')
+-- vim.keymap.set({'n', 'x'}, 'cp', '"+y')
+-- vim.keymap.set({'n', 'x'}, 'cv', '"+p')
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Toggle nvim tree with leader n
 vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
@@ -25,3 +27,9 @@ vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 -- Cycle Buffers
 vim.keymap.set('n', "<C-p>", [[:bnext<CR>]])
 vim.keymap.set('n', "<C-n>", [[:bprevious<CR>]])
+
+-- Resize window using <shift> arrow keys
+vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
+vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
+vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
+vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
