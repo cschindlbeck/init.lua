@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
---
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
@@ -24,5 +22,6 @@ vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 -- Toggle tabs
 -- vim.keymap.set('n', "<leader>u", [[:tabn<CR>]])
 
--- Buffers
-vim.keymap.set('n', "<leader>bn", [[:bnext<CR>]])
+-- Cycle Buffers
+vim.keymap.set('n', "<C-p>", [[:bnext<CR>]])
+vim.keymap.set('n', "<C-n>", [[:bprevious<CR>]])
