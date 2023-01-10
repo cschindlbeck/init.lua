@@ -33,3 +33,8 @@ vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
 vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
 vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
 vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
+
+-- CTRL S mapping because muscle memory is a thing
+vim.keymap.set('n', "<C-S>", [[:update<CR>]])
+vim.keymap.set('v', "<C-S>", [[<C-C>:update<CR>]])
+vim.keymap.set('i', "<C-S>", [[<C-O>::update<CR>]])
