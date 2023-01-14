@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
+-- Y behaves vim idiomatic
+vim.keymap.set("n", "Y", "yg$")
 
 -- Switch windows with ctrl and vim motions
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -12,8 +13,24 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 -- NOT WORKING?
 -- vim.keymap.set({'n', 'x'}, 'cp', '"+y')
 -- vim.keymap.set({'n', 'x'}, 'cv', '"+p')
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- Paste and do not overwrite buffer
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- Paste from clipboard
+-- vim.keymap.set("x", "<leader>p", "\"+p")
+vim.keymap.set("n", "<leader>p", "\"+p")
+
+-- Yank from clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Toggle nvim tree with leader n
 vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
@@ -28,6 +45,9 @@ vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 vim.keymap.set('n', "<C-p>", [[:bnext<CR>]])
 vim.keymap.set('n', "<C-n>", [[:bprevious<CR>]])
 
+-- close buffer
+vim.keymap.set("n", "<leader>c", ":bd<CR>")
+
 -- Resize window using <shift> arrow keys
 vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
 vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
@@ -38,3 +58,14 @@ vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
 vim.keymap.set('n', "<C-S>", [[:update<CR>]])
 vim.keymap.set('v', "<C-S>", [[<C-C>:update<CR>]])
 vim.keymap.set('i', "<C-S>", [[<C-O>::update<CR>]])
+
+-- Move selected lines in visual mode up, down, left or right
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "L", ">gv")
+vim.keymap.set("v", "H", "<gv")
+
+-- format file
+vim.keymap.set("n", "<leader>f", function()
+    vim.lsp.buf.format()
+end)
