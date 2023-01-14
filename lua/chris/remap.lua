@@ -69,3 +69,11 @@ vim.keymap.set("v", "H", "<gv")
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
+
+
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
+
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>hs", ":split<CR>")
+
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")

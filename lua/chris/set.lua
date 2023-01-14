@@ -1,16 +1,24 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+local options = {
 
-vim.opt.termguicolors = true
+    nu = true,
+    clipboard = "unnamedplus",
+    relativenumber = true,
+    termguicolors = true,
+    smartindent = true,
+    hlsearch = true,
+    incsearch = true,
+    tabstop = 4,
+    softtabstop = 4,
+    shiftwidth = 4,
+    expandtab = true,
+    colorcolumn = "120",
+    scrolloff = 15,
+    sidescrolloff = 8,
+    updatetime = 300,
 
-vim.opt.smartindent = true
+}
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.colorcolumn = "120"
+for k, v in pairs(options) do
+    vim.opt[k] = v
+end
