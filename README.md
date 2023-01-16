@@ -11,13 +11,6 @@ Tested on Neovim 0.8.2
 
 ## Requirements
 
-- Packer
-    Install package manager
-
-    ```
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    ```
-
 - Nerdfont for nice icons
 
     Download [nerd-fonts repo](https://github.com/ryanoasis/nerd-fonts#option-3-install-script), install via install.sh script, takes ages and loads of space
@@ -29,16 +22,21 @@ Tested on Neovim 0.8.2
     sudo apt install npm
     ```
 
-## Usage
+## Install
 
-Install new packages by sourcing packer.lua via
-
-```
-:so
-```
-
-Then install packages via PackerSync
+First, open nvim and then close it, the second time install packages via PackerSync
 
 ```
 :PackerSync
 ```
+
+Currently, treesitter is complaining but doing it a second time works
+
+
+## Command line install
+
+```
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+
+Does not work at the moment
