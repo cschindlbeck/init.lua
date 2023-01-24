@@ -11,6 +11,8 @@ Tested on Neovim 0.8.2
 
 ## Requirements
 
+- Telescope livegrep needs rg
+
 - Nerdfont for nice icons
 
     Download [nerd-fonts repo](https://github.com/ryanoasis/nerd-fonts#option-3-install-script), install via install.sh script, takes ages and loads of space
