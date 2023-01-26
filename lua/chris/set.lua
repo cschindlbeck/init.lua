@@ -4,6 +4,7 @@ local options = {
     clipboard = "unnamedplus",
     relativenumber = true,
     termguicolors = true,
+    ignorecase = true,
     smartindent = true,
     hlsearch = true,
     incsearch = true,
