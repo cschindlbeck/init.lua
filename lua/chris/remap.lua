@@ -1,5 +1,11 @@
 vim.g.mapleader = " "
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>hs", ":split<CR>")
+
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Y behaves vim idiomatic
 vim.keymap.set("n", "Y", "yg$")
 
@@ -9,8 +15,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 
--- Copy paste to clipboard
--- NOT WORKING?
+-- Copy paste to clipboard, needs xclip installed on x11
 -- vim.keymap.set({'n', 'x'}, 'cp', '"+y')
 -- vim.keymap.set({'n', 'x'}, 'cv', '"+p')
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -31,9 +36,6 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
-
--- Toggle nvim tree with leader n
-vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 
 -- Open new tab
 -- vim.keymap.set('n', "<leader>t", [[:tabnew<CR>]])
@@ -69,11 +71,3 @@ vim.keymap.set("v", "H", "<gv")
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
-
-
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
-
-vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
-vim.keymap.set("n", "<leader>hs", ":split<CR>")
-
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
