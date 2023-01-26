@@ -24,6 +24,8 @@ Tested on Neovim 0.8.2
     sudo apt install npm
     ```
 
+- Copy paste from clipboard needs xclip installed
+
 ## Install
 
 First, open nvim and then close it, the second time install packages via PackerSync
