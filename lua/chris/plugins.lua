@@ -69,6 +69,9 @@ return require('packer').startup(function(use)
     -- Convenient bufferdelete
     use 'famiu/bufdelete.nvim'
 
+    -- "gc" to comment visual regions/lines
+    use 'numToStr/Comment.nvim'
+
     -- Toggle terminal
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()

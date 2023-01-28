@@ -11,6 +11,8 @@ local options = {
     tabstop = 4,
     softtabstop = 4,
     shiftwidth = 4,
+    swapfile = false,
+    -- undofile = true,
     expandtab = true,
     colorcolumn = "120",
     scrolloff = 15,
@@ -23,3 +25,8 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- not working
+-- vim.cmd([[ match ErrorMsg /\s+$/ ]])
+-- vim.cmd[[highlight ColorColumn ctermbg=0 guibg=lightgrey]]
+-- vim.cmd [[match ErrorMsg /\s+$/ ]]
