@@ -15,12 +15,12 @@ Tested on Neovim 0.8.2
 
 - Nerdfont for nice icons
 
-    Download [nerd-fonts repo](https://github.com/ryanoasis/nerd-fonts#option-3-install-script), install via install.sh script, takes ages and loads of space
+    Download [nerd-fonts repository](https://github.com/ryanoasis/nerd-fonts#option-3-install-script), install via install.sh script, takes ages and loads of space
 
-- NPM
+- npm
 
     Mason installs some packages via NPM
-    ```
+    ```bash
     sudo apt install npm
     ```
 
@@ -30,16 +30,16 @@ Tested on Neovim 0.8.2
 
 First, open nvim and then close it, the second time install packages via PackerSync
 
-```
+```nvim
 :PackerSync
 ```
 
 Currently, treesitter is complaining but doing it a second time works
 
 
-## Command line install
+## Command-line install
 
-```
+```bash
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
