@@ -19,7 +19,7 @@ Tested on Neovim 0.8.2
 
 - npm
 
-    Mason installs some packages via NPM
+    Mason installs some packages via npm
     ```bash
     sudo apt install npm
     ```
