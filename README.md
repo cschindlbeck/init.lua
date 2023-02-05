@@ -1,4 +1,4 @@
-![lualint](https://github.com/cschindlbeck/ini.lua/actions/workflows/lint.yml/badge.svg)
+![lualint](https://github.com/cschindlbeck/init.lua/actions/workflows/lint.yml/badge.svg)
 
 # Neovim lua config
 
