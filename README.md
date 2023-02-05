@@ -1,3 +1,5 @@
+![lualint](https://github.com/cschindlbeck/ini.lua/actions/workflows/lint.yml/badge.svg)
+
 # Neovim lua config
 
 Neovim config that has the following features:
