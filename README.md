@@ -28,6 +28,8 @@ Tested on Neovim 0.8.2
 
 - Copy paste from clipboard needs xclip installed
 
+- rust needs cargo, clippy 
+
 ## Install
 
 First, open nvim and then close it, the second time install packages via PackerSync
