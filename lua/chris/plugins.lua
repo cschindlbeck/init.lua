@@ -5,7 +5,11 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1',
                                 'https://github.com/wbthomason/packer.nvim', install_path})
-  print("Installing packer close and reopen Neovim...")
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -118,24 +122,3 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
--- if PACKER_BOOTSTRAP print("blub")
-  -- print '=================================='
-  -- print '    Plugins are being installed'
-  -- print '    Wait until Packer completes,'
-  -- print '       then restart nvim'
-  -- print '=================================='
-  -- return
-
--- Automatically source and re-compile packer whenever you save this init.lua
--- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', {
-  -- command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
-  -- group = packer_group,
-  -- pattern = vim.fn.expand '$MYVIMRC',
--- })
-

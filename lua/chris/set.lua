@@ -28,5 +28,6 @@ end
 
 -- not working
 -- vim.cmd([[ match ErrorMsg /\s+$/ ]])
--- vim.cmd[[highlight ColorColumn ctermbg=0 guibg=lightgrey]]
--- vim.cmd [[match ErrorMsg /\s+$/ ]]
+
+-- Thick column and grey
+-- vim.opt.cmd([[highlight ColorColumn ctermbg=0 guibg=lightgrey]])
