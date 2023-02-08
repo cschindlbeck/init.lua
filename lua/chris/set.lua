@@ -1,16 +1,33 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+local options = {
 
-vim.opt.termguicolors = true
+    clipboard = "unnamedplus",
+    colorcolumn = "120",
+    expandtab = true,
+    hlsearch = true,
+    ignorecase = true,
+    incsearch = true,
+    nu = true,
+    relativenumber = true,
+    smartindent = true,
+    softtabstop = 4,
+    scrolloff = 15,
+    sidescrolloff = 8,
+    shiftwidth = 4,
+    swapfile = false,
+    termguicolors = true,
+    tabstop = 4,
+    -- undofile = true,
+    updatetime = 300,
 
-vim.opt.smartindent = true
+}
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+for k, v in pairs(options) do
+    vim.opt[k] = v
+end
 
-vim.opt.colorcolumn = "120"
+-- not working
+-- vim.cmd([[ match ErrorMsg /\s+$/ ]])
+
+-- Thick column and grey
+-- vim.opt.cmd([[highlight ColorColumn ctermbg=0 guibg=lightgrey]])

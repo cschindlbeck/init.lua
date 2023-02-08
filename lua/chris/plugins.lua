@@ -3,8 +3,13 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  print("Installing packer close and reopen Neovim...")
+  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1',
+                                'https://github.com/wbthomason/packer.nvim', install_path})
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -35,18 +40,23 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Telescope
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    -- Treesitter
     use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 
+    -- VS code theme
     use 'Mofiqul/vscode.nvim'
 
+    -- Vim plugin
     use 'tpope/vim-fugitive'
 
+    -- Nvim tree
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -55,15 +65,24 @@ return require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
-
+    -- Fancier bufferline
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
+    -- Fancier statusline
+    use 'nvim-lualine/lualine.nvim'
+
+    -- Convenient bufferdelete
     use 'famiu/bufdelete.nvim'
 
+    -- "gc" to comment visual regions/lines
+    use 'numToStr/Comment.nvim'
+
+    -- Toggle terminal
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
 
+    -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -86,6 +105,7 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Trouble
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",

@@ -1,5 +1,16 @@
 vim.g.mapleader = " "
 
+-- Disable space as we set it as leader
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Split and quit via leader keys
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>hs", ":split<CR>")
+
+-- Yank entire file
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- Y behaves vim idiomatic
 vim.keymap.set("n", "Y", "yg$")
 
@@ -9,31 +20,19 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 
--- Copy paste to clipboard
--- NOT WORKING?
--- vim.keymap.set({'n', 'x'}, 'cp', '"+y')
--- vim.keymap.set({'n', 'x'}, 'cv', '"+p')
+-- Copy to clipboard, needs xclip installed on x11
+vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Paste and do not overwrite buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
-
--- Paste from clipboard
--- vim.keymap.set("x", "<leader>p", "\"+p")
 vim.keymap.set("n", "<leader>p", "\"+p")
 
--- Yank from clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
-
+-- Delete into void buffer
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
-
--- Toggle nvim tree with leader n
-vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 
 -- Open new tab
 -- vim.keymap.set('n', "<leader>t", [[:tabnew<CR>]])
@@ -45,7 +44,7 @@ vim.keymap.set('n', "<leader>n", [[:NvimTreeToggle<CR>]], {})
 vim.keymap.set('n', "<C-p>", [[:bnext<CR>]])
 vim.keymap.set('n', "<C-n>", [[:bprevious<CR>]])
 
--- close buffer
+-- Close buffer
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 
 -- Resize window using <shift> arrow keys
@@ -65,7 +64,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "L", ">gv")
 vim.keymap.set("v", "H", "<gv")
 
--- format file
+-- Format file
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
