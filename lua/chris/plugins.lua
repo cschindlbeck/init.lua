@@ -41,7 +41,7 @@ local plugins = {
     },
 
     -- Fancier bufferline
-    {'akinsho/bufferline.nvim', tag = "v3.*", dependencies = 'nvim-tree/nvim-web-devicons'},
+    {'akinsho/bufferline.nvim', version = "v3.*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
     -- Fancier statusline
     'nvim-lualine/lualine.nvim',
