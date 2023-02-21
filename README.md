@@ -11,6 +11,11 @@ Neovim config that has the following features:
 
 Tested on Neovim 0.8.2
 
+TODO
+
+- bufferline does not highlight
+- python linter settings
+
 ## Requirements
 
 - Telescope livegrep needs rg
