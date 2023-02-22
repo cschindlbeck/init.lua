@@ -1,35 +1,30 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
     -- Packer can manage itself
-    'wbthomason/packer.nvim',
+    -- 'wbthomason/packer.nvim',
 
     -- Telescope
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
-        dependencies = { {'nvim-lua/plenary.nvim'} }
+        dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
 
-    -- -- Treesitter
-    'nvim-treesitter/nvim-treesitter',
-
-    -- VS code theme
-    'Mofiqul/vscode.nvim',
-
-    -- Vim plugin
-    'tpope/vim-fugitive',
+    'nvim-treesitter/nvim-treesitter', -- -- Treesitter
+    'Mofiqul/vscode.nvim', -- VS code theme
+    'tpope/vim-fugitive', -- Vim plugin
 
     -- Nvim tree
     {
@@ -41,45 +36,39 @@ local plugins = {
     },
 
     -- Fancier bufferline
-    {'akinsho/bufferline.nvim', version = "v3.*", dependencies = 'nvim-tree/nvim-web-devicons'},
+    { 'akinsho/bufferline.nvim', version = "v3.*", dependencies = 'nvim-tree/nvim-web-devicons' },
+    'nvim-lualine/lualine.nvim', -- Fancier statusline
+    'famiu/bufdelete.nvim', -- Convenient bufferdelete
+    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
 
-    -- Fancier statusline
-    'nvim-lualine/lualine.nvim',
+    -- Toggle terminal
+    { "akinsho/toggleterm.nvim",
+        -- tag = '*',
+        config = function()
+            require("toggleterm").setup()
+        end
+    },
 
-    -- Convenient bufferdelete
-    'famiu/bufdelete.nvim',
-
-    -- "gc" to comment visual regions/lines
-    'numToStr/Comment.nvim',
-
-    -- -- Toggle terminal
-    {"akinsho/toggleterm.nvim",
-    -- tag = '*',
-    config = function()
-        require("toggleterm").setup()
-    end
-        },
-    --
-    -- -- LSP
+    -- LSP
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
         }
     },
 
